@@ -46,7 +46,7 @@ class Flight
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlaneModel", inversedBy="planes")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlaneModel", inversedBy="plane")
      * @ORM\JoinColumn(nullable=false)
      */
 
@@ -54,7 +54,7 @@ class Flight
     private $plane;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="pilots")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="pilot")
      * @ORM\JoinColumn(nullable=false)
      */
 
@@ -67,7 +67,7 @@ class Flight
      */
 
 
-    private $flights;
+    private $flight;
 
 
     /**
@@ -378,7 +378,7 @@ class Flight
      */
     public function __construct()
     {
-        $this->flights = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->flight = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -390,7 +390,7 @@ class Flight
      */
     public function addFlight(\AppBundle\Entity\Reservation $flight)
     {
-        $this->flights[] = $flight;
+        $this->flight[] = $flight;
 
         return $this;
     }
@@ -402,7 +402,7 @@ class Flight
      */
     public function removeFlight(\AppBundle\Entity\Reservation $flight)
     {
-        $this->flights->removeElement($flight);
+        $this->flight->removeElement($flight);
     }
 
     /**
@@ -410,8 +410,8 @@ class Flight
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFlights()
+    public function getFlight()
     {
-        return $this->flights;
+        return $this->flight;
     }
 }

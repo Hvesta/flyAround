@@ -62,7 +62,7 @@ class PlaneModel
      */
 
 
-    private $planes;
+    private $plane;
 
 
 
@@ -226,7 +226,7 @@ class PlaneModel
      */
     public function removePlane(\AppBundle\Entity\Flight $plane)
     {
-        $this->planes->removeElement($plane);
+        $this->plane->removeElement($plane);
     }
 
     /**
@@ -234,8 +234,8 @@ class PlaneModel
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getPlanes()
+    public function getPlane()
     {
-        return $this->planes;
+        return $this->plane;
     }
 }

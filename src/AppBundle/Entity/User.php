@@ -86,7 +86,7 @@ class User
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="reviewAuthor")
      */
 
-    private $reviewAuthors;
+    private $reviewAuthor;
 
 
     /**
@@ -94,7 +94,7 @@ class User
      */
 
 
-    private $pilots;
+    private $pilot;
 
 
     /**
@@ -102,7 +102,7 @@ class User
      */
 
 
-    private $passengers;
+    private $passenger;
 
 
     /**
@@ -287,8 +287,8 @@ class User
      */
     public function __construct()
     {
-        $this->reviewAuthors = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->pilots = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reviewAuthor = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pilot = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -300,7 +300,7 @@ class User
      */
     public function addReviewAuthor(\AppBundle\Entity\Review $reviewAuthor)
     {
-        $this->reviewAuthors[] = $reviewAuthor;
+        $this->reviewAuthor[] = $reviewAuthor;
 
         return $this;
     }
@@ -312,7 +312,7 @@ class User
      */
     public function removeReviewAuthor(\AppBundle\Entity\Review $reviewAuthor)
     {
-        $this->reviewAuthors->removeElement($reviewAuthor);
+        $this->reviewAuthor->removeElement($reviewAuthor);
     }
 
     /**
@@ -322,7 +322,7 @@ class User
      */
     public function getReviewAuthors()
     {
-        return $this->reviewAuthors;
+        return $this->reviewAuthor;
     }
 
     /**
@@ -334,7 +334,7 @@ class User
      */
     public function addPilot(\AppBundle\Entity\Flight $pilot)
     {
-        $this->pilots[] = $pilot;
+        $this->pilot[] = $pilot;
 
         return $this;
     }
@@ -346,17 +346,17 @@ class User
      */
     public function removePilot(\AppBundle\Entity\Flight $pilot)
     {
-        $this->pilots->removeElement($pilot);
+        $this->pilot->removeElement($pilot);
     }
 
     /**
-     * Get pilots
+     * Get pilot
      *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function getPilots()
     {
-        return $this->pilots;
+        return $this->pilot;
     }
 
     /**
@@ -368,7 +368,7 @@ class User
      */
     public function addPassenger(\AppBundle\Entity\Reservation $passenger)
     {
-        $this->passengers[] = $passenger;
+        $this->passenger[] = $passenger;
 
         return $this;
     }
@@ -380,16 +380,16 @@ class User
      */
     public function removePassenger(\AppBundle\Entity\Reservation $passenger)
     {
-        $this->passengers->removeElement($passenger);
+        $this->passenger->removeElement($passenger);
     }
 
     /**
-     * Get passengers
+     * Get passenger
      *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function getPassengers()
     {
-        return $this->passengers;
+        return $this->passenger;
     }
 }

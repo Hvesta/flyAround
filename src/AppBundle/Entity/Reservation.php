@@ -16,7 +16,6 @@ class Reservation
     /*
      * Adding personal methods / variables
      */
-
     public function __toString()
     {
         // return the Flight object with "[ID]" format when __toString is called.
@@ -56,7 +55,7 @@ class Reservation
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="passengers")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="passenger")
      * @ORM\JoinColumn(nullable=false)
      */
 
@@ -65,7 +64,7 @@ class Reservation
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Flight", inversedBy="flights")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Flight", inversedBy="flight")
      * @ORM\JoinColumn(nullable=false)
      */
 
@@ -202,4 +201,7 @@ class Reservation
     {
         return $this->flight;
     }
+
+
+
 }

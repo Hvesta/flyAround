@@ -58,10 +58,10 @@ class Review
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
 
-     private $userRated;
+    private $userRated;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="reviewAuthors")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="reviewAuthor")
      * @ORM\JoinColumn(nullable=false)
      */
 
