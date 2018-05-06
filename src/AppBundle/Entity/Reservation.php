@@ -12,6 +12,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reservation
 {
+
+    /*
+     * Adding personal methods / variables
+     */
+
+    public function __toString()
+    {
+        // return the Flight object with "[ID]" format when __toString is called.
+        return $this->id;
+    }
+
+
     /**
      * @var int
      *
@@ -41,6 +53,24 @@ class Reservation
      * @ORM\Column(name="wasDone", type="boolean")
      */
     private $wasDone;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="passengers")
+     * @ORM\JoinColumn(nullable=false)
+     */
+
+
+    private $passenger;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Flight", inversedBy="flights")
+     * @ORM\JoinColumn(nullable=false)
+     */
+
+
+    private $flight;
 
 
     /**
@@ -124,5 +154,52 @@ class Reservation
     {
         return $this->wasDone;
     }
-}
 
+    /**
+     * Set passenger
+     *
+     * @param \AppBundle\Entity\User $passenger
+     *
+     * @return Reservation
+     */
+    public function setPassenger(\AppBundle\Entity\User $passenger)
+    {
+        $this->passenger = $passenger;
+
+        return $this;
+    }
+
+    /**
+     * Get passenger
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getPassenger()
+    {
+        return $this->passenger;
+    }
+
+    /**
+     * Set flight
+     *
+     * @param \AppBundle\Entity\Flight $flight
+     *
+     * @return Reservation
+     */
+    public function setFlight(\AppBundle\Entity\Flight $flight)
+    {
+        $this->flight = $flight;
+
+        return $this;
+    }
+
+    /**
+     * Get flight
+     *
+     * @return \AppBundle\Entity\Flight
+     */
+    public function getFlight()
+    {
+        return $this->flight;
+    }
+}
