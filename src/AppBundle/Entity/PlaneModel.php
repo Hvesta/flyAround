@@ -12,6 +12,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaneModel
 {
+
+    /*
+     * Adding personal methods / variables
+     */
+
+    public function __toString()
+    {
+        // return the Flight object with "[MODEL][CRUISESPEED]" format when __toString is called.
+        return $this->model . " " . $this->cruiseSpeed;
+    }
+
+
     /**
      * @var int
      *
