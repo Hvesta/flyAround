@@ -3,7 +3,11 @@
 {% block body %}
     <h1>Review creation</h1>
 
-    <p>Form in construction !</p>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
 
     <ul>
         <li>
