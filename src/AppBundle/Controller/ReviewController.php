@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 /**
-* Listing controller.
+* Review controller.
 *
 * @Route("review")
 */
